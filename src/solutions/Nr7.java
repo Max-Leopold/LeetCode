@@ -1,5 +1,9 @@
 package solutions;
 
+/**
+ * Given a 32-bit signed integer, reverse digits of an integer.
+ */
+
 public class Nr7 {
 
   public static int reverse(int x) {

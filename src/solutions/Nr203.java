@@ -3,6 +3,10 @@ package solutions;
 import classes.ListNode;
 import util.Utils;
 
+/**
+ * Remove all elements from a linked list of integers that have value val.
+ */
+
 public class Nr203 {
 
   public static ListNode removeElements(ListNode head, int val) {

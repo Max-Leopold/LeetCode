@@ -5,6 +5,11 @@ import util.Utils;
 
 public class Nr21 {
 
+  /**
+   * Merge two sorted linked lists and return it as a new list. The new list should be made
+   * by splicing together the nodes of the first two lists.
+   */
+
   public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
     if(l1 == null) {
       return l2;

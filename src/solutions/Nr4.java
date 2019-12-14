@@ -21,7 +21,8 @@ public class Nr4 {
     int pointerA = 0;
     int pointerB = 0;
 
-    while (pointerA < nums1.length && pointerB < nums2.length) {
+    while ((pointerA < nums1.length && pointerB < nums2.length)
+        && (pointerA + pointerB) != mergedArrays.length / 2 + 1) {
       if (nums1[pointerA] < nums2[pointerB]) {
         mergedArrays[pointerA + pointerB] = nums1[pointerA];
         pointerA++;
@@ -32,12 +33,14 @@ public class Nr4 {
     }
 
     if (pointerA == nums1.length) {
-      while (pointerB < nums2.length) {
+      while (pointerB < nums2.length
+          && (pointerA + pointerB) != mergedArrays.length / 2 + 1) {
         mergedArrays[pointerA + pointerB] = nums2[pointerB];
         pointerB++;
       }
     } else {
-      while (pointerA < nums1.length) {
+      while (pointerA < nums1.length
+          && (pointerA + pointerB) != mergedArrays.length / 2 + 1) {
         mergedArrays[pointerA + pointerB] = nums1[pointerA];
         pointerA++;
       }

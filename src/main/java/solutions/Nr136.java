@@ -1,4 +1,4 @@
-package solutions;
+package main.java.solutions;
 
 public class Nr136 {
 

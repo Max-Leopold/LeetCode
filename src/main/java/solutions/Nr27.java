@@ -1,4 +1,4 @@
-package solutions;
+package main.java.solutions;
 
 /**
  * Given an array nums and a value val, remove all instances of that value

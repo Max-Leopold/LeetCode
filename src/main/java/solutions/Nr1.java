@@ -1,4 +1,4 @@
-package solutions;
+package main.java.solutions;
 
 /**
  * Given an array of integers, return indices of the two numbers such that they add up to a

@@ -1,4 +1,4 @@
-package solutions;
+package main.java.solutions;
 
 import classes.ListNode;
 import util.Utils;

@@ -1,6 +1,4 @@
-package main.java.util;
-
-import classes.ListNode;
+package main.util.java;
 
 public class Utils {
 

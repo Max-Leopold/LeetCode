@@ -1,4 +1,4 @@
-package main.java.solutions;
+package main.problems.java;
 
 /**
  * There are two sorted arrays nums1 and nums2 of size m and n respectively.

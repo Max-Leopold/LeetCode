@@ -1,4 +1,4 @@
-package main.java.solutions;
+package main.problems.java;
 
 /**
  * Given a 32-bit signed integer, reverse digits of an integer.

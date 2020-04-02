@@ -1,4 +1,4 @@
-package main.java.solutions;
+package main.problems.java;
 
 public class Nr8 {
 

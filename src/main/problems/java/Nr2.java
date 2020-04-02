@@ -1,7 +1,7 @@
-package main.java.solutions;
+package main.problems.java;
 
-import classes.ListNode;
-import main.java.util.Utils;
+import main.util.java.ListNode;
+import main.util.java.Utils;
 
 /**
  * You are given two non-empty linked lists representing two non-negative integers.

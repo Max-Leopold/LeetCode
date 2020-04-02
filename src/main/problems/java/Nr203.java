@@ -1,7 +1,7 @@
-package main.java.solutions;
+package main.problems.java;
 
-import classes.ListNode;
-import main.java.util.Utils;
+import main.util.java.ListNode;
+import main.util.java.Utils;
 
 /**
  * Remove all elements from a linked list of integers that have value val.

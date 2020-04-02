@@ -1,4 +1,4 @@
-package main.java.solutions;
+package main.problems.java;
 
 /**
  * You are given an n x n 2D matrix representing an image.

@@ -1,4 +1,4 @@
-package main.java.challenges.april;
+package main.april.java;
 
 public class Day1 {
 

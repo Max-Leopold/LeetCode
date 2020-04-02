@@ -1,6 +1,6 @@
-package main.java.solutions;
+package main.problems.java;
 
-import classes.ListNode;
+import main.util.java.ListNode;
 
 /**
  * Given a linked list, remove the n-th node from the end of list and return its head.

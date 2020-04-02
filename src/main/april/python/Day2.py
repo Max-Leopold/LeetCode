@@ -7,7 +7,7 @@ class Solution:
 			l = list(map(int, str(n)))
 			n = 0
 			for i in l:
-				n += i * i
+				n += i ** 2
 			if n == 1:
 				return True
 

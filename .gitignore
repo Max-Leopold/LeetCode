@@ -109,3 +109,6 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
+/venv/
+/LeetCode.iml
+/.idea/

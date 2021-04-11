@@ -12,6 +12,7 @@ public class Solution1 {
 
     private static void mirrorAlongX(Integer[][] matrix) {
         for (int i = 0; i < matrix.length / 2; i++) {
+            // We could save memory by only putting a single int in tmp and not the whole line
             Integer[] tmp = matrix[i];
             matrix[i] = matrix[matrix.length - 1 - i];
             matrix[matrix.length - 1 - i] = tmp;

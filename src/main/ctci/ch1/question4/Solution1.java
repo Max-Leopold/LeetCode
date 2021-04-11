@@ -28,7 +28,7 @@ public class Solution1 {
             }
 
             charCounter[input.charAt(i)]++;
-            if (charCounter[input.charAt(i)] % 2 == 0) {
+            if (charCounter[input.charAt(i)] % 2 != 0) {
                 odds++;
             } else {
                 odds--;

@@ -10,6 +10,10 @@ import main.util.java.ListNode;
 public class Solution1 {
 
     static ListNode removeDups(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+
         ListNode returnHead = head;
 
         Set<Integer> seen = new HashSet<>();

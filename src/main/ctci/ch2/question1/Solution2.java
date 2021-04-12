@@ -7,6 +7,10 @@ import main.util.java.ListNode;
 public class Solution2 {
 
     static ListNode removeDups(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+
         ListNode returnHead = head;
 
         while (head != null) {

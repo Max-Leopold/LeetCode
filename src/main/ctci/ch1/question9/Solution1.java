@@ -5,9 +5,11 @@ public class Solution1 {
     static boolean alreadyCalledIsSubstring;
 
     static boolean stringRotation(String first, String second) throws IllegalAccessException {
-        String secondDoubled = second + second;
+        if (first != null && second != null && first.length() == second.length()) {
+            return isSubstring(first, second + second);
+        }
 
-        return isSubstring(first, secondDoubled);
+        return false;
     }
 
     private static boolean isSubstring(String first, String second) throws IllegalAccessException {

@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 public class Solution2 {
 
-    public static boolean isUnique(String s) {
+    static boolean isUnique(String s) {
         char[] sortedChars = s.toCharArray();
         Arrays.sort(sortedChars);
 

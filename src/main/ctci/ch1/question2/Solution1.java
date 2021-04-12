@@ -10,7 +10,7 @@ package main.ctci.ch1.question2;
 
 public class Solution1 {
 
-    public static boolean checkPermutation(String first, String second) {
+    static boolean checkPermutation(String first, String second) {
         if (first.length() != second.length()) {
             return false;
         }

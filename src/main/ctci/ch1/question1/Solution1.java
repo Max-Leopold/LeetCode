@@ -12,7 +12,7 @@ package main.ctci.ch1.question1;
 
 public class Solution1 {
 
-    public static boolean isUnique(String s) {
+    static boolean isUnique(String s) {
         boolean[] charCounter = new boolean[128];
 
         for (char c : s.toCharArray()) {

@@ -4,7 +4,7 @@ package main.ctci.ch1.question7;
 
 public class Solution1 {
 
-    public static Integer[][] rotateMatrix(Integer[][] matrix) {
+    static Integer[][] rotateMatrix(Integer[][] matrix) {
         mirrorAlongX(matrix);
         mirrorAlongDiagonal(matrix);
         return matrix;

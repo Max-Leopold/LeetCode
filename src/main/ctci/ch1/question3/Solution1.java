@@ -7,7 +7,7 @@ package main.ctci.ch1.question3;
 
 public class Solution1 {
 
-    public static char[] urlify(char[] string, int realLength) {
+    static char[] urlify(char[] string, int realLength) {
         for (int i = 0; i < string.length; i++) {
             if (string[i] == ' ') {
                 shiftRight(string, 2, i + 1);

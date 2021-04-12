@@ -4,7 +4,7 @@ package main.ctci.ch1.question3;
 
 public class Solution2 {
 
-    public static char[] urlify(char[] string, int realLength) {
+    static char[] urlify(char[] string, int realLength) {
         int whitespaces = 0;
         for (int i = 0; i < realLength; i++) {
             if (string[i] == ' ') {

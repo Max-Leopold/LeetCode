@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class Solution2 {
 
-    public static boolean checkPermutation(String first, String second) {
+    static boolean checkPermutation(String first, String second) {
         if (first.length() != second.length()) {
             return false;
         }

@@ -5,7 +5,7 @@ package main.ctci.ch1.question1;
 
 public class Solution3 {
 
-    public static boolean isUnique(String s) {
+    static boolean isUnique(String s) {
 
         for (int i = 0; i < s.length(); i++) {
             String character = s.substring(i, i + 1);

@@ -1,0 +1,38 @@
+Problem: Array is fixed size. We can't adjust the size depending on our need (If we don't want to use resizable arrays)
+
+Idea 1:
+Allocate a fix space for every stack at the initialization.
+E.g.
+Initialize with stack size n.
+Stack 1 = array[0, n]
+Stack 2 = array[n + 1, 2 * n]
+Stack 3 = array[2 * n + 1, 3 * n]
+
+Idea 2:
+Dynamically resize stack size.
+Start each stack at the leftmost position and shift everything right.
+E.g.
+Stack 1 = array[0, 0]
+Stack 2 = array[0, 0]
+Stack 3 = array[0, 0]
+
+Insert item in stack 2
+-> Shift stack 3 one position right
+Stack 1 = array[0, 0]
+Stack 2 = array[0, 1]
+Stack 3 = array[1, 1]
+
+Insert item in stack 1
+-> Shift stack 2 and 3 one step right
+Stack 1 = array[0, 1]
+Stack 2 = array[1, 2]
+Stack 3 = array[2, 2]
+
+...
+
+Idea 3:
+Dynamically resize stacks with initial capacity.
+Combine Idea 1 and 2.
+Stacks are initialized with capacity. As soon as a stack reaches capacity and needs more space shift adjacent stack to the right.
+Stacks can also wrap around the end of the array.
+E.g. Stack 3 can be [n - 4, 3]

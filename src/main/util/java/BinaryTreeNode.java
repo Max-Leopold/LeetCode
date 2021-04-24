@@ -29,4 +29,11 @@ public class BinaryTreeNode {
     public int getVal() {
         return val;
     }
+
+    @Override
+    public String toString() {
+        return "BinaryTreeNode{" +
+                "val=" + val +
+                '}';
+    }
 }

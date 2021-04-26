@@ -12,6 +12,15 @@ public class BinaryTreePrinter {
         printNodeInternal(Collections.singletonList(root), 1, maxLevel);
     }
 
+    public static void printInOrder(BinaryTreeNode root) {
+        if (root == null) {
+            return;
+        }
+        printInOrder(root.getLeft());
+        System.out.print(root.getVal() + ", ");
+        printInOrder(root.getRight());
+    }
+
     private static <T extends Comparable<?>> void printNodeInternal(List<BinaryTreeNode> nodes, int level, int maxLevel) {
         if (nodes.isEmpty() || BinaryTreePrinter.isAllElementsNull(nodes))
             return;

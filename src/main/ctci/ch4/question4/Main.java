@@ -12,8 +12,8 @@ public class Main {
                         BinaryTreeBuilder.insertLevelOrder(
                                 new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9},
                                 new BinaryTreeNode(1),
-                                0
-                        )
+                                0,
+                                null)
                 )
         );
 

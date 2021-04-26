@@ -5,6 +5,7 @@ public class BinaryTreeNode {
     private final int val;
     private BinaryTreeNode left;
     private BinaryTreeNode right;
+    private BinaryTreeNode parent;
 
     public BinaryTreeNode(int val) {
         this.val = val;
@@ -28,6 +29,14 @@ public class BinaryTreeNode {
 
     public int getVal() {
         return val;
+    }
+
+    public BinaryTreeNode getParent() {
+        return parent;
+    }
+
+    public void setParent(BinaryTreeNode parent) {
+        this.parent = parent;
     }
 
     @Override

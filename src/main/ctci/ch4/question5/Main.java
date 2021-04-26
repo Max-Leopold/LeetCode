@@ -10,8 +10,8 @@ public class Main {
         BinaryTreeNode noBstRoot = BinaryTreeBuilder.insertLevelOrder(
                 new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9},
                 new BinaryTreeNode(1),
-                0
-        );
+                0,
+                null);
         BinaryTreePrinter.printNode(noBstRoot);
 
         System.out.println(Solution.validateBST(noBstRoot, null, null));
@@ -20,8 +20,8 @@ public class Main {
         BinaryTreeNode bstRoot = BinaryTreeBuilder.insertLevelOrder(
                 new int[]{10, 5, 15, 2, 7, 12, 17, 1, 3},
                 new BinaryTreeNode(1),
-                0
-        );
+                0,
+                null);
         BinaryTreePrinter.printNode(bstRoot);
 
         System.out.println(Solution.validateBST(bstRoot, null, null));
@@ -30,8 +30,8 @@ public class Main {
         BinaryTreeNode noBstRoot2 = BinaryTreeBuilder.insertLevelOrder(
                 new int[]{20, 10, 30, 1, 25},
                 new BinaryTreeNode(1),
-                0
-        );
+                0,
+                null);
         BinaryTreePrinter.printNode(noBstRoot2);
 
         System.out.println(Solution.validateBST(noBstRoot2, null, null));

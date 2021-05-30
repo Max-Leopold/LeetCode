@@ -83,6 +83,8 @@ def print_closest_dis():
         x, y = a.exterior.xy
         plt.plot(x, y)
     ax.set_aspect('equal')
+    ax.set_ylabel('Latitude')
+    ax.set_xlabel('Longitude')
 
     plt.show()
     fig.savefig('vonoroi.png')

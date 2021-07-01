@@ -2,6 +2,8 @@ package main.problems.java;
 
 public class Nr1155 {
 
+    private static final int MOD = 1_000_000_007;
+
     public static void main(String[] args) {
         Nr1155 nr1155 = new Nr1155();
         System.out.println(nr1155.numRollsToTarget(10, 20, 100));
@@ -31,9 +33,9 @@ public class Nr1155 {
         }
 
         int possibilities = 0;
-        for (int i = 1; i <= f; i++) {
+        for (int i = 1; i <= Math.min(f, target); i++) {
             possibilities += numRollsToTarget(diceMatrix, d - 1, f, target - i);
-            possibilities %= 1000000007;
+            possibilities %= MOD;
         }
         return insertIntoDiceMatrix(diceMatrix, d, target, possibilities);
     }

@@ -1,7 +1,5 @@
 package main.problems.java;
 
-import java.util.Arrays;
-
 public class Nr322 {
     public static void main(String[] args) {
         Nr322 nr322 = new Nr322();
@@ -12,22 +10,28 @@ public class Nr322 {
     }
 
     public int coinChange(int[] coins, int amount) {
-        if (amount < 1) return 0;
-        int[] minCoinsFromHereToEnd = new int[amount + 1];
-        Arrays.fill(minCoinsFromHereToEnd, amount + 1);
-        minCoinsFromHereToEnd[amount] = 0;
-        for (int i = amount; i >= 0; i--) {
-            for (int coin : coins) {
-                if (i + coin <= amount && i + coin >= 0) {
-                    minCoinsFromHereToEnd[i] = Math.min(
-                            minCoinsFromHereToEnd[i],
-                            minCoinsFromHereToEnd[i + coin] + 1
-                    );
+        int[] minCoinsForAmount = new int[amount + 1];
+
+        for (int coin : coins) {
+            minCoinsForAmount[coin] = 1;
+        }
+
+        for (int i = 1; i < minCoinsForAmount.length; i++) {
+            if (minCoinsForAmount[i] != 0) {
+                for (int coin : coins) {
+                    if (i + coin < minCoinsForAmount.length && i + coin > 0) {
+                        int currentMinCoinsForAmount = minCoinsForAmount[i + coin];
+                        if (currentMinCoinsForAmount == 0) {
+                            minCoinsForAmount[i + coin] = minCoinsForAmount[i] + 1;
+                        } else {
+                            minCoinsForAmount[i + coin] = Math.min(minCoinsForAmount[i + coin], minCoinsForAmount[i] + 1);
+                        }
+                    }
                 }
             }
         }
 
-        return minCoinsFromHereToEnd[0] < amount + 1 ? minCoinsFromHereToEnd[0] : -1;
+        return minCoinsForAmount[amount] == 0 ? -1 : minCoinsForAmount[amount];
     }
 
     // Greedy doesnt always find the best solution.

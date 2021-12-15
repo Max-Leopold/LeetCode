@@ -27,7 +27,8 @@ def djikstra(start_point, end_point, grid)
 end
 
 min_cost = djikstra([0, 0], [grid.length - 1, grid[grid.length - 1].length - 1], grid)
-puts min_cost
+puts "Day 15, Part 1: The minimal risk level to travel from top left to bottom right is #{min_cost}"
+
 super_grid = (grid.map {|row| row * 5} * 5).map.with_index(0) {|row, i|
     row.map.with_index(0) {|value, j|
         row_offset = i / grid.length
@@ -36,4 +37,5 @@ super_grid = (grid.map {|row| row * 5} * 5).map.with_index(0) {|row, i|
         value > 9 ? value % 9 : value
     }
 }
-puts djikstra([0, 0], [super_grid.length - 1, super_grid[super_grid.length - 1].length - 1], super_grid)
+min_cost = djikstra([0, 0], [super_grid.length - 1, super_grid[super_grid.length - 1].length - 1], super_grid)
+puts "Day 15, Part 2: The minimal risk level to travel from top left to the bottom right (using the x5 grid) is #{min_cost}"

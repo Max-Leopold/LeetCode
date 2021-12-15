@@ -1,38 +1,39 @@
-require 'rb_heap'
+require 'priority_queue'
 require 'set'
 
-input = File.open(File.join(File.dirname(__FILE__), "input.txt"), "r").map {|line| line.chomp.split("").map(&:to_i)}
+grid = File.open(File.join(File.dirname(__FILE__), "input.txt"), "r").map {|line| line.chomp.split("").map(&:to_i)}
 
-Point = Struct.new(:risk_level, :neighbours) 
-Node = Struct.new(:cost, :point)
-
-def create_graph(grid)
-    grid = grid.map {|row| row.map{|p| Point.new(p, [])}}
-    (0...grid.length).each {|i|
-        (0...grid[i].length).each {|j|
-            grid[i][j].neighbours << grid[i + 1][j] if i < grid.length - 1
-            grid[i][j].neighbours << grid[i - 1][j] if i > 0
-            grid[i][j].neighbours << grid[i][j + 1] if j < grid[i].length - 1
-            grid[i][j].neighbours << grid[i][j - 1] if j > 0
-        }
-    }
-    return grid[0][0], grid[-1][-1]
+def neighbours(row, column, grid)
+    neighbours = []
+    neighbours << [row + 1, column] if row + 1 < grid.length
+    neighbours << [row - 1, column] if row - 1 >= 0
+    neighbours << [row, column + 1] if column + 1 < grid[row].length
+    neighbours << [row, column - 1] if column - 1 >= 0
+    neighbours
 end
 
-def djikstra(start_point, end_point)
-    node_heap = Heap.new {|a, b| a.cost < b.cost}
-    node_heap << Node.new(0, start_point)
+def djikstra(start_point, end_point, grid)
+    p_queue = PriorityQueue.new
+    p_queue[start_point] = 0
     visited = Set.new(start_point)
-    until node_heap.peak.point == end_point || node_heap.empty?
-        current_node = node_heap.pop
-        current_node.point.neighbours.each {|neighbour|
-            node_heap << Node.new(current_node.cost + neighbour.risk_level, neighbour) unless visited.include?(neighbour)
+    until p_queue.min_key == end_point || p_queue.empty?
+        current_pos, risk_level = p_queue.delete_min
+        neighbours(current_pos.first, current_pos.last, grid).each {|neighbour|
+            p_queue[neighbour] = risk_level + grid[neighbour.first][neighbour.last] unless visited.include? neighbour
             visited << neighbour
         }
     end
-    node_heap.peak.cost
+    p_queue.min.last
 end
 
-start_point, end_point = create_graph(input)
-min_cost = djikstra(start_point, end_point)
+min_cost = djikstra([0, 0], [grid.length - 1, grid[grid.length - 1].length - 1], grid)
 puts min_cost
+super_grid = (grid.map {|row| row * 5} * 5).map.with_index(0) {|row, i|
+    row.map.with_index(0) {|value, j|
+        row_offset = i / grid.length
+        column_offset = j / grid[0].length
+        value += row_offset + column_offset
+        value > 9 ? value % 9 : value
+    }
+}
+puts djikstra([0, 0], [super_grid.length - 1, super_grid[super_grid.length - 1].length - 1], super_grid)

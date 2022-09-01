@@ -7,9 +7,9 @@ def rob(nums)
 end
 
 def rob_range(nums, start, end_num, dp = [])
-    prev_one, prev_two = [nums[start], nums[start + 1]].max, nums[start]
+    prev_one, prev_two = 0, 0
 
-    ((start + 2)..end_num).each do |idx|
+    (start..end_num).each do |idx|
         prev_one, prev_two = [prev_one, prev_two + nums[idx]].max, prev_one
     end
     prev_one

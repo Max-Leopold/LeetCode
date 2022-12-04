@@ -1,8 +1,10 @@
+extern crate test;
+
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
 pub fn part2() -> Result<i32, Box<dyn std::error::Error>> {
-    let file = File::open("input/input.txt")?;
+    let file = File::open("input/day2/input.txt")?;
     let reader = BufReader::new(file);
 
     let mut result = 0;
@@ -41,5 +43,23 @@ fn choose_selection<'a>(opponent: &'a str, result: &'a str) -> (&'a str, i32) {
             _ => panic!("Unsupported choice"),
         },
         _ => panic!("Unsupported choice"),
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use test::Bencher;
+
+    #[test]
+    fn test_part2() {
+        assert_eq!(12725, part2().unwrap());
+    }
+
+    #[bench]
+    fn bench_part2(b: &mut Bencher) {
+        b.iter(|| {
+            part2().unwrap();
+        })
     }
 }

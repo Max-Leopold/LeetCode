@@ -11,6 +11,7 @@ mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day5;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -79,6 +80,13 @@ fn main() {
 
         print_seperator();
     }
+
+    if days.contains(&5) {
+        println!("Day 5, Part 1: {}", day5::part1::part1().unwrap());
+        println!("Day 5, Part 2: {}", day5::part2::part2().unwrap());
+
+        print_seperator();
+    }
 }
 
 fn print_seperator() {
@@ -109,6 +117,9 @@ mod tests {
 
             day4::part1::part1().unwrap();
             day4::part2::part2().unwrap();
+
+            day5::part1::part1().unwrap();
+            day5::part2::part2().unwrap();
         })
     }
 }

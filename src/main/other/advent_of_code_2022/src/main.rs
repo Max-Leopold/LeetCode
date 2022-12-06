@@ -129,8 +129,8 @@ mod tests {
             day5::part1::part1().unwrap();
             day5::part2::part2().unwrap();
 
-            day6::part1::part1().unwrap();
-            day6::part2::part2().unwrap();
+            day6::part1::part1_2().unwrap();
+            day6::part2::part2_2().unwrap();
         })
     }
 }

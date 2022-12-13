@@ -1,7 +1,9 @@
 #![feature(test)]
+#![feature(array_zip)]
 
 use std::collections::HashSet;
 use std::env;
+use std::time::Instant;
 
 use getopts::Options;
 
@@ -15,6 +17,7 @@ mod day5;
 mod day6;
 mod day7;
 mod day8;
+mod day9;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -51,6 +54,8 @@ fn main() {
     };
 
     print_seperator();
+
+    let now = Instant::now();
 
     if days.contains(&1) {
         println!("Day 1, Part 1: {}", day1::part1::part1().unwrap());
@@ -108,7 +113,20 @@ fn main() {
     if days.contains(&8) {
         println!("Day 8, Part 1: {}", day8::part1::part1().unwrap());
         println!("Day 8, Part 2: {}", day8::part2::part2().unwrap());
+
+        print_seperator();
     }
+
+    if days.contains(&9) {
+        println!("Day 9, Part 1: {}", day9::part1::part1().unwrap());
+        println!("Day 9, Part 2: {}", day9::part2::part2().unwrap());
+
+        print_seperator();
+    }
+
+    print_seperator();
+
+    println!("Running this took {}ms", now.elapsed().as_millis());
 }
 
 fn print_seperator() {
@@ -148,6 +166,9 @@ mod tests {
 
             day7::part1::part1().unwrap();
             day7::part2::part2().unwrap();
+
+            day9::part1::part1().unwrap();
+            day9::part2::part2().unwrap();
         })
     }
 }

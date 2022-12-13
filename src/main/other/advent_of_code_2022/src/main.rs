@@ -100,7 +100,7 @@ fn main() {
 
     if days.contains(&7) {
         println!("Day 7, Part 1: {}", day7::part1::part1().unwrap());
-        // println!("Day 7, Part 2: {}", day7::part2::part2().unwrap());
+        println!("Day 7, Part 2: {}", day7::part2::part2().unwrap());
 
         print_seperator();
     }
@@ -145,6 +145,9 @@ mod tests {
 
             day6::part1::part1_2().unwrap();
             day6::part2::part2_2().unwrap();
+
+            day7::part1::part1().unwrap();
+            day7::part2::part2().unwrap();
         })
     }
 }

@@ -42,9 +42,12 @@ pub fn part1_2() -> Result<usize, Box<dyn std::error::Error>> {
 
         if i >= 4 {
             let remove_char = lookup[i - 4];
-            let entry = map.entry(remove_char).and_modify(|counter| *counter -= 1).or_default();
+            let entry = map
+                .entry(remove_char)
+                .and_modify(|counter| *counter -= 1)
+                .or_default();
             if *entry == 0 {
-              set.remove(&remove_char);
+                set.remove(&remove_char);
             }
         }
 

@@ -18,6 +18,7 @@ mod day6;
 mod day7;
 mod day8;
 mod day9;
+mod day10;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -124,6 +125,13 @@ fn main() {
         print_seperator();
     }
 
+    if days.contains(&10) {
+        println!("Day 10, Part 1: {}", day10::part1::part1().unwrap());
+        println!("Day 10, Part 2: {}", day10::part2::part2().unwrap());
+
+        print_seperator();
+    }
+
     print_seperator();
 
     println!("Running this took {}ms", now.elapsed().as_millis());
@@ -169,6 +177,8 @@ mod tests {
 
             day9::part1::part1().unwrap();
             day9::part2::part2().unwrap();
+
+            day10::part1::part1().unwrap()
         })
     }
 }

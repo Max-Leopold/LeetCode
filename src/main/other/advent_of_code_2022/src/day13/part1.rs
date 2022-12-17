@@ -3,7 +3,7 @@ use std::io::{BufRead, BufReader};
 
 use itertools::Itertools;
 
-use crate::day13::package::Package;
+use crate::day13::package::PackageData;
 
 pub fn part1() -> Result<usize, Box<dyn std::error::Error>> {
     let file = File::open("input/day13/input.txt")?;
@@ -12,8 +12,8 @@ pub fn part1() -> Result<usize, Box<dyn std::error::Error>> {
     let mut i = 1;
     let mut res = 0;
     for mut chunk in &reader.lines().chunks(3) {
-        let first_package = Package::from_chars(&mut chunk.next().unwrap().unwrap().chars());
-        let second_package = Package::from_chars(&mut chunk.next().unwrap().unwrap().chars());
+        let first_package = PackageData::from_chars(&mut chunk.next().unwrap().unwrap().chars());
+        let second_package = PackageData::from_chars(&mut chunk.next().unwrap().unwrap().chars());
         if first_package < second_package {
             res += i;
         }

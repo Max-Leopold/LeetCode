@@ -9,11 +9,6 @@ pub enum PackageData {
     List(Vec<PackageData>),
 }
 
-#[derive(Debug)]
-pub struct Package {
-    data: PackageData,
-}
-
 impl ToString for PackageData {
     fn to_string(&self) -> String {
         match self {
@@ -91,7 +86,7 @@ impl PartialEq for PackageData {
 
 impl Eq for PackageData {}
 
-impl Package {
+impl PackageData {
     pub fn from_chars(chars: &mut Chars) -> PackageData {
         let mut package_data = PackageData::List(Vec::new());
         let mut num_string = String::new();
@@ -107,7 +102,7 @@ impl Package {
                 }
                 '[' => {
                     if let PackageData::List(ref mut list) = package_data {
-                        list.push(Package::from_chars(chars));
+                        list.push(PackageData::from_chars(chars));
                     }
                 }
                 ']' => {

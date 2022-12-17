@@ -1,5 +1,6 @@
 #![feature(test)]
 #![feature(array_zip)]
+#![feature(let_chains)]
 
 use std::collections::HashSet;
 use std::env;
@@ -12,6 +13,7 @@ extern crate test;
 mod day1;
 mod day10;
 mod day12;
+mod day13;
 mod day2;
 mod day3;
 mod day4;
@@ -136,6 +138,15 @@ fn main() {
     if days.contains(&12) {
         println!("Day 12, Part1: {}", day12::part1::part1().unwrap());
         println!("Day 12, Part2: {}", day12::part2::part2().unwrap());
+
+        print_seperator();
+    }
+
+    if days.contains(&13) {
+        println!("Day 13, Part1: {}", day13::part1::part1().unwrap());
+        println!("Day 13, Part2: {}", day13::part2::part2().unwrap());
+
+        print_seperator();
     }
 
     print_seperator();
@@ -189,6 +200,9 @@ mod tests {
 
             day12::part1::part1().unwrap();
             day12::part2::part2().unwrap();
+
+            day13::part1::part1().unwrap();
+            day13::part2::part2().unwrap();
         })
     }
 }

@@ -14,6 +14,7 @@ mod day1;
 mod day10;
 mod day12;
 mod day13;
+mod day14;
 mod day2;
 mod day3;
 mod day4;
@@ -149,6 +150,13 @@ fn main() {
         print_seperator();
     }
 
+    if days.contains(&14) {
+        println!("Day 14, Part1: {}", day14::part1::part1().unwrap());
+        println!("Day 14, Part2: {}", day14::part2::part2().unwrap());
+
+        print_seperator();
+    }
+
     print_seperator();
 
     println!("Running this took {}ms", now.elapsed().as_millis());
@@ -203,6 +211,9 @@ mod tests {
 
             day13::part1::part1().unwrap();
             day13::part2::part2().unwrap();
+
+            day14::part1::part1().unwrap();
+            day14::part2::part2().unwrap();
         })
     }
 }

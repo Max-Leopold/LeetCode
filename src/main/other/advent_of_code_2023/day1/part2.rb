@@ -3,12 +3,10 @@ input = File.open(File.join(File.dirname(__FILE__), "input.txt"), "r").map(&:cho
 numbers = %w(zero one two three four five six seven eight nine 0 1 2 3 4 5 6 7 8 9)
 
 def find_leftmost_number(string, numbers)
-    map = numbers.each_with_index.map do |number, value|
+    numbers.each_with_index.map do |number, index|
         idx = string.index(number)
-        [idx, number] if idx
-    end.compact.to_h
-
-    (numbers.index(map[map.keys.min]) % 10).to_s
+        [idx, (index % 10).to_s] if idx
+    end.compact.min_by{_1}.last
 end
 
 result = input.map do |line|

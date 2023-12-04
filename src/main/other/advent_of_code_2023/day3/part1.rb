@@ -21,11 +21,9 @@ input.each_with_index do |line, line_index|
             engine_part ||= COORDS.any? do |char_change, line_change|
                 symbols_set.include?(LINE_LENGTH * (line_index + line_change) + (char_index + char_change))
             end
-        elsif engine_part
-            result += current_num
+        else
+            result += current_num if engine_part
 
-            current_num, engine_part = 0, false
-        else 
             current_num, engine_part = 0, false
         end
     end

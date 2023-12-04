@@ -23,17 +23,13 @@ input.each_with_index do |line, line_index|
                 coord = LINE_LENGTH * (line_index + line_change) + (char_index + char_change)
                 gear_set.include?(coord) ? coord : nil
             end.compact)
-        elsif gears.size > 0
+        else gears.size > 0
             gears.each { |gear| gear_map[gear] << current_num }
 
             current_num, gears = 0, Set.new
-        else
-            current_num, gears = 0, Set.new
         end
     end
-    unless gears.empty?
-        gears.each { |gear| gear_map[gear] << current_num }
-    end
+    gears.each { |gear| gear_map[gear] << current_num }
 end
 
 result = gear_map.values.select { |value| value.size == 2}.map { |nums| nums.inject(1, :*) }.sum

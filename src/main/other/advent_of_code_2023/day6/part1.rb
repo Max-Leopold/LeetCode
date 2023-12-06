@@ -7,8 +7,6 @@ def number_of_ways_to_beat(time, distance)
     (((-time - disc) / -2)).ceil - (((-time + disc) / -2) + 1).floor
 end
 
-result = times.zip(distances).map do |time, distance|
-    number_of_ways_to_beat(time, distance)
-end.reduce(1, :*)
+result = times.zip(distances).map { number_of_ways_to_beat(_1, _2) }.reduce(1, :*)
 
 pp result

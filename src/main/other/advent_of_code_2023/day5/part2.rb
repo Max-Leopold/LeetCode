@@ -42,11 +42,9 @@ input[1...].each do |line|
     if d_start
         map[[s_start, s_start + l - 1]] = d_start
     else
-        unless map.empty?
-            ranges = ranges.map do |range|
-                map_range(range, map)
-            end.flatten(1)
-        end
+        ranges = ranges.map do |range|
+            map_range(range, map)
+        end.flatten(1) unless map.empty?
 
         map = {}
     end

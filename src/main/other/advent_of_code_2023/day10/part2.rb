@@ -18,7 +18,7 @@ end
 is_in_loop, count = false, 0
 input.each_with_index do |line, y|
     line.each_with_index do |char, x| 
-        is_in_loop = !is_in_loop if loop_cords.include?([x, y]) && ["J", "L", "|"].include?(char)
+        is_in_loop = !is_in_loop if loop_cords.include?([x, y]) && "JL|".include?(char)
         count += 1 if is_in_loop && !loop_cords.include?([x, y])
     end
     is_in_loop = false
